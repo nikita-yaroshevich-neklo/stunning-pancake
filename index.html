@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SingleCast</title>
+  <base href="/single-cast/>"
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="/manifest.webapp">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+
+
+  <!-- Service worker support is disabled by default.
+       Install the worker script and uncomment to enable.
+       Only enable service workers in production.
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/worker.js').catch(function(err) {
+        console.log('Error installing service worker: ', err);
+      });
+    }
+  </script>
+  -->
+</head>
+<body>
+  <single-cast-app>
+    <div class="window step1">
+      <div class="bg">
+        <div class="bg__images" style="background-image: url('assets/images/bg-1.jpg'); "></div>
+        <div class="bg__over"></div>
+      </div>
+
+      <div class="content">
+        <div class="box">
+          <div class="wrapper">
+            <div class="logo">
+              <a href="#">
+                <img src="assets/images/logo.png" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </single-cast-app>
+
+  <script src="vendor/es6-shim/es6-shim.js"></script>
+  <script src="vendor/reflect-metadata/Reflect.js"></script>
+  <script src="vendor/systemjs/dist/system.src.js"></script>
+  <script src="vendor/zone.js/dist/zone.js"></script>
+
+  <script>
+    System.import('system-config.js').then(function () {
+      System.import('main');
+    }).catch(console.error.bind(console));
+  </script>
+
+  <!--Vendor javascript libs-->
+  <!--Nanocosmos-->
+  <script src="app/bundle/broadcaster/vendor/js/nano.webrtc.3.6.2.min.js"></script>
+  <script src="app/bundle/broadcaster/vendor/js/nano.bintu.0.4.min.js"></script>
+  <script type="text/javascript">
+    require(['nano.webrtc.require'], function() {
+    });
+  </script>
+</body>
+</html>

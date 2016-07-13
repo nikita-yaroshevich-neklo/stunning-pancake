@@ -1,0 +1,70 @@
+<div class="bg">
+  <div class="bg__images" style="background-image: url('assets/images/bg-1.jpg'); "></div>
+  <div class="bg__over"></div>
+</div>
+
+<div class="content">
+  <div class="box">
+    <div class="wrapper">
+      <div class="logo">
+        <a href="#">
+          <img src="assets/images/logo.png" alt=""/>
+        </a>
+      </div>
+
+      <form class="form" [ngFormModel]="loginForm" (ngSubmit)="signin(loginForm.value)">
+
+        <div class="grid">
+          <div class="grid-item grid-coll-12">
+            <fieldset class="fieldset">
+              <div class="form-group" [ngClass]="{ 'has-error' : !username.valid && submitAttempt }">
+                <em *ngIf="!username.valid && submitAttempt">Required</em>
+                <input id="username" type="text" class="input-text" placeholder="Email Address" ngControl="username">
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="grid-item grid-coll-7">
+            <fieldset class="fieldset">
+              <div class="form-group" [ngClass]="{ 'has-error' : !password.valid && submitAttempt }">
+
+                <em *ngIf="password.hasError('required') && submitAttempt">Required</em>
+                <em *ngIf="password.hasError('minlength') && submitAttempt">Must be at least 8 characters</em>
+                <input id="password" type="password" class="input-text" placeholder="Password" ngControl="password">
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="grid-item grid-coll-5">
+            <fieldset class="fieldset">
+              <label class="input-checkbox">
+                <input type="checkbox"/>
+                <i class="fa fa-check"></i>
+                <span>Keep Me Signed In</span>
+              </label>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="grid-item grid-coll-12">
+            <fieldset class="fieldsetBtn">
+              <button class="btn">Sign in</button>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="grid-item grid-coll-12">
+
+            <div class="link">
+              <a href="#">Recover Password</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
